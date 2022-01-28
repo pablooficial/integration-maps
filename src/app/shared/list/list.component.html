@@ -1,0 +1,25 @@
+<div class="container">
+  <input
+    class="form-control"
+    type="text"
+    name="search"
+    [(ngModel)]="searchText"
+    autocomplete="off"
+    placeholder="Pesquisar Linhas de Lotação"
+  />
+  <div class="list-group mt-2">
+    <ng-template
+      ngFor
+      let-listOnibus
+      [ngForOf]="getListOnibus | filter: searchText"
+    >
+      <a
+        [routerLink]="['deatails', listOnibus.id]"
+        class="list-group-item list-group-item-action"
+        aria-current="true"
+      >
+        {{ listOnibus.codigo }} | {{ listOnibus.nome }}
+      </a>
+    </ng-template>
+  </div>
+</div>

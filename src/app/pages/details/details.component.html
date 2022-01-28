@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="header">
+    <h1>{{ marksName.codigo }} | {{ marksName.nome }}</h1>
+
+    <a [routerLink]="['']" class="btn btn__secondary"> voltar </a>
+  </div>
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+    <agm-marker
+      *ngFor="let m of markers; let i = index"
+      (markerClick)="clickedMarker(m.lng, m.lat)"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+    >
+    </agm-marker>
+  </agm-map>
+</div>
